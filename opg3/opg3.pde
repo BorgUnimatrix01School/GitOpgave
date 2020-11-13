@@ -3,43 +3,45 @@
 
 
 // konstant moms
-int moms = 25%;
+float moms = 0.25;
 
-setup(){
+// Kartoffel variabler
+int antal = 5;
+int pris = 6;
+
+void setup(){
   size(100,100);
   noLoop();
 }
 
-draw(){
-  int prisudenMoms;  
-  int antal;
-  int pris=6;
+void draw(){
+  float prisUdenMoms = 0;
+  float prisMedMoms = 0;
   // beregn pris
-  prisudenMoms = beregnPris(antal, pris);
+  prisUdenMoms = beregnPris(antal, pris);
   // beregn moms
-  prisMedMoms = beregnMoms(prisudenMoms, moms);
+  prisMedMoms = beregnMoms(prisUdenMoms, moms);
   // udskriv bon
-  udskrivBon(prisudenMoms, prisMedMoms);
+  udskrivBon(prisUdenMoms, prisMedMoms);
 }
 
 // beregner pris fra antal * kilo og retrurnerer samlet pris
-float beregnPris(int antal, int pris){
-  return antal * pris
+float beregnPris(int antal, float pris){
+  return antal * pris;
 }
 
 
 // beregner moms og returnerer pris med moms
-void beregnMoms(pris, moms){
- retrn pris*moms;
+float beregnMoms(float pris, float moms){
+ return pris * (1 + moms);
 }
 
 
 //udskriver en kasseBon til consol
-int udskrivBon(prisUdenMoms, prisMedMoms){
- moms = 1;
- println("kg pris: ",kgpris);
- println("antal kilo"+antal);
- println("ialt uden moms",prisUdenMoms)
- println("momsbeløb: ",prisUdenMoms - prisMedMoms," procent",moms)
- println("ialt med moms",prisUdenMoms)
+void udskrivBon(float prisUdenMoms, float prisMedMoms){
+ println("kg pris: ", pris);
+ println("antal kilo: ", antal);
+ println("i alt uden moms: ", prisUdenMoms);
+ println("momsbeløb: ", prisMedMoms - prisUdenMoms," procent: ", moms*100, "%");
+ println("i alt med moms: ", prisMedMoms);
 }

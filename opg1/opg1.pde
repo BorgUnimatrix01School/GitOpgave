@@ -1,13 +1,10 @@
-// Find og ret fejlen
+// Find og ret fejlene
 
 
 // programmet skal udskrive sætningen 5 gange
 
-int i = "hej med dig";
-String str = 5;
-boolean found = false;
+String str = "hej med dig";
 
-While (!found)
-{
-println(str);
+for(int i = 0; i < 5; i++){
+  println(str);
 }
